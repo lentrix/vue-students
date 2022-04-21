@@ -60,36 +60,7 @@ export default {
                 program: '',
                 year: null
             },
-            students: [
-                {
-                    id: 1,
-                    lastName: "Flavian",
-                    firstName: "Giovanni",
-                    program: "BSIT",
-                    year: 2
-                },
-                {
-                    id: 2,
-                    lastName: "Gregorio",
-                    firstName: "Francisco",
-                    program: "BSCRIM",
-                    year: 2
-                },
-                {
-                    id: 1,
-                    lastName: "Davide",
-                    firstName: "Jennifer",
-                    program: "BSHM",
-                    year: 2
-                },
-                {
-                    id: 1,
-                    lastName: "Taravena",
-                    firstName: "Panfilo",
-                    program: "BSA",
-                    year: 2
-                },
-            ]
+            students: []
         }
     },
     methods: {
@@ -102,7 +73,17 @@ export default {
                 program: '',
                 year: null
             }
+        },
+        getData() {
+            fetch('http://localhost:3001/students')
+            .then(res=>res.json())
+            .then(data=>{
+                this.students = data
+            })
         }
+    },
+    mounted() {
+        
     }
 }
 </script>
